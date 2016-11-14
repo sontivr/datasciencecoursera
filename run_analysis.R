@@ -95,6 +95,6 @@ newnames<-gsub("(.*)(\\(\\)-?|\\(\\)?)(.*)", "\\1\\3", newnames)
 names(finalDF)<-str_trim(newnames)
 
 # Write final data set to a file
-write.table(finalDF, file = "finaldataset.txt", sep = " ")
+write.table(finalDF, file = "finaldataset.txt", row.names = FALSE)
 
 
