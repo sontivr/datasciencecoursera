@@ -1,0 +1,378 @@
+---
+title: "CodeBook"
+author: "Ramana Sonti"
+date: "11/13/2016"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data Dictionary - Human Activity Recognition Using Smartphones Dataset
+
+
+# Variables in the finaldataset.txt
+
+activity   
+
+    * Activity Labels  
+        - Walking  
+        - Walking Upstairs   
+        - Walking Downstairs   
+        - Sitting  
+        - Standing   
+        - Laying  
+
+subject  
+
+    * Integer between 1 through 30
+
+
+mean tBodyAcc X  
+
+    * Average of X components of mean body acceleration in time domain
+
+mean tBodyAcc Y  
+
+    * Average of Y components of mean body acceleration in time domain
+
+mean tBodyAcc Z  
+
+    * Average of Z components of mean body acceleration in time domain
+
+std tBodyAcc X  
+
+    * Average of X components of std body acceleration in time domain
+
+std tBodyAcc Y  
+
+    * Average of Y components of std body acceleration in time domain
+
+
+std tBodyAcc Z  
+
+    * Average of Z components of std body acceleration in time domain
+
+
+mean tGravityAcc X
+
+    * Average of X components of mean gravity acceleration in time domain
+
+
+mean tGravityAcc Y  
+
+    * Average of Y components of mean gravity acceleration in time domain
+
+
+mean tGravityAcc Z
+
+    * Average of Z components of mean gravity acceleration in time domain
+
+
+std tGravityAcc X 
+
+    * Average of X components of std for gravity acceleration in time domain
+
+
+std tGravityAcc Y  
+
+    * Average of Y components of std for gravity acceleration in time domain
+
+std tGravityAcc Z 
+
+    * Average of Z components of std for gravity acceleration in time domain
+
+mean tBodyAccJerk X
+
+    * Average of X components of mean for body acceleration jerk in time domain
+
+mean tBodyAccJerk Y  
+
+    * Average of Y components of mean for body acceleration jerk in time domain
+
+mean tBodyAccJerk Z  
+
+    * Average of Z components of mean for body acceleration jerk in time domain
+
+
+std tBodyAccJerk X  
+
+    * Average of X components of std for body acceleration jerk in time domain
+
+std tBodyAccJerk Y  
+
+    * Average of Y components of std for body acceleration jerk in time domain
+
+std tBodyAccJerk Z
+
+    * Average of Z components of std for body acceleration jerk in time domain
+
+mean tBodyGyro X  
+
+    * Average of X components of mean for body gyro in time domain
+
+mean tBodyGyro Y  
+
+    * Average of Y components of mean for body gyro in time domain
+
+mean tBodyGyro Z  
+
+    * Average of Z components of mean for body gyro in time domain
+
+std tBodyGyro X  
+
+    * Average of X components of std for body gyro in time domain
+
+std tBodyGyro Y  
+
+    * Average of Y components of std for body gyro in time domain
+
+std tBodyGyro Z  
+
+    * Average of Z components of std for body gyro in time domain
+
+mean tBodyGyroJerk X
+
+    * Average of X components of mean for body gyro jerk in time domain
+
+mean tBodyGyroJerk Y  
+
+    * Average of Y components of mean for body gyro jerk in time domain
+
+mean tBodyGyroJerk Z  
+
+    * Average of Z components of mean for body gyro jerk in time domain
+
+std tBodyGyroJerk X
+
+    * Average of X components of std for body gyro jerk in time domain
+
+std tBodyGyroJerk Y  
+
+    * Average of Y components of std for body gyro jerk in time domain
+
+std tBodyGyroJerk Z
+
+    * Average of Z components of std for body gyro jerk in time domain
+
+mean tBodyAccMag  
+
+    * Average of means of body acceleration magnitude in time domain
+
+std tBodyAccMag  
+
+    * Average of std of body acceleration magnitude in time domain
+
+mean tGravityAccMag 
+
+    * Average of means of gravity acceleration magnitude in time domain
+
+std tGravityAccMag  
+
+    * Average of std of gravity acceleration magnitude in time domain
+
+mean tBodyAccJerkMag  
+
+    * Average of means of body acceleration jerk magnitude in time domain
+
+std tBodyAccJerkMag  
+
+    * Average of std of body acceleration jerk magnitude in time domain
+
+mean tBodyGyroMag  
+
+    * Average of means of body gyro magnitude in time domain
+
+std tBodyGyroMag  
+
+    * Average of std of body gyro magnitude in time domain
+
+mean tBodyGyroJerkMag
+
+    * Average of means of body gyro jerk magnitude in time domain
+
+std tBodyGyroJerkMag  
+
+    * Average of std of body gyro jerk magnitude in time domain
+
+mean fBodyAcc X  
+
+    * Average of means of X components of body accelaration in frequency domain
+
+mean fBodyAcc Y  
+
+    * Average of means of Y components of body accelaration in frequency domain
+
+mean fBodyAcc Z  
+
+    * Average of means of Z components of body accelaration in frequency domain
+
+std fBodyAcc X  
+
+    * Average of std of X components of body accelaration in frequency domain
+
+std fBodyAcc Y  
+
+    * Average of std of Y components of body accelaration in frequency domain
+
+std fBodyAcc Z  
+
+    * Average of std of Z components of body accelaration in frequency domain
+
+meanFreq fBodyAcc X  
+
+    * Average of mean frequency of X components of body accelaration in frequency domain
+
+meanFreq fBodyAcc Y  
+
+    * Average of mean frequency of Y components of body accelaration in frequency domain
+
+meanFreq fBodyAcc Z  
+
+    * Average of mean frequency of Z components of body accelaration in frequency domain
+
+mean fBodyAccJerk X  
+
+    * Average of means of X components of body accelaration jerk in frequency domain
+
+mean fBodyAccJerk Y  
+
+    * Average of means of Y components of body accelaration jerk in frequency domain
+
+mean fBodyAccJerk Z  
+
+    * Average of means of Z components of body accelaration jerk in frequency domain
+
+std fBodyAccJerk X  
+
+    * Average of std of X components of body accelaration jerk in frequency domain
+
+std fBodyAccJerk Y  
+
+    * Average of std of Y components of body accelaration jerk in frequency domain
+
+std fBodyAccJerk Z  
+
+    * Average of std of Z components of body accelaration jerk in frequency domain
+
+meanFreq fBodyAccJerk X  
+
+    * Average of mean frequencies of X components of body accelaration jerk in frequency domain
+
+meanFreq fBodyAccJerk Y  
+
+    * Average of mean frequencies of Y components of body accelaration jerk in frequency domain
+
+meanFreq fBodyAccJerk Z  
+
+    * Average of mean frequencies of Z components of body accelaration jerk in frequency domain
+
+mean fBodyGyro X  
+
+    * Average of means of X components of body gyro in frequency domain
+
+mean fBodyGyro Y  
+
+    * Average of means of Y components of body gyro in frequency domain
+
+mean fBodyGyro Z  
+
+    * Average of means of Z components of body gyro in frequency domain
+
+std fBodyGyro X  
+
+    * Average of std of X components of body gyro in frequency domain
+
+std fBodyGyro Y  
+
+    * Average of std of Y components of body gyro in frequency domain
+
+std fBodyGyro Z  
+
+    * Average of std of Z components of body gyro in frequency domain
+
+meanFreq fBodyGyro X  
+
+    * Average of mean frequencies of X components of body gyro in frequency domain
+
+meanFreq fBodyGyro Y  
+
+    * Average of mean frequencies of Y components of body gyro in frequency domain
+
+meanFreq fBodyGyro Z  
+
+    * Average of mean frequencies of Z components of body gyro in frequency domain
+
+mean fBodyAccMag  
+
+    * Average of means of body  accelarion magnitude in frequency domain
+
+std fBodyAccMag  
+
+    * Average of std of body  accelarion magnitude in frequency domain
+
+meanFreq fBodyAccMag
+
+    * Average of mean frequencies of body  accelaration magnitude in frequency domain
+
+mean fBodyBodyAccJerkMag  
+
+    * Average of means of body  body accelaration jerk magnitude in frequency domain
+
+std fBodyBodyAccJerkMag  
+
+    * Average of std of body  body accelaration magnitude jerk magnitude in frequency domain
+
+meanFreq fBodyBodyAccJerkMag  
+
+    * Average of mean frequencies of body  body accelaration magnitude jerk magnitude in frequency domain
+
+mean fBodyBodyGyroMag  
+
+    * Average of means of body  body gyro magnitude in frequency domain
+
+std fBodyBodyGyroMag  
+
+    * Average of std of body  body gyro magnitude in frequency domain
+
+meanFreq fBodyBodyGyroMag
+
+    * Average of mean frequencies of body  body gyro magnitude in frequency domain
+
+mean fBodyBodyGyroJerkMag  
+
+    * Average of means of body  body gyro jerk magnitude in frequency domain
+
+std fBodyBodyGyroJerkMag  
+
+    * Average of std of body  body gyro jerk magnitude in frequency domain
+
+meanFreq fBodyBodyGyroJerkMag  
+
+    * Average of mean frequencies of body  body gyro jerk magnitude in frequency domain
+
+
+# Steps used to produce finaldataset.txt
+. Read activity labels into a data frame and add a column with descriptive names for activities  
+. Read subjects into a data frame  
+. Read test data sets (subject_test, y_test, X_test) into separate data frames  
+. Read train data sets  (subject_train, y_train, X_train) into separate data frames  
+. Combine/rbind data frames for each type from test and train (subject, y, X)  
+. Drop all variable columns that do not have/represent mean or std  
+. Join activities (y) data frame with activity labels data frame to generate the column with lables in y data frame  
+. Perform aggregation on X data frame by activity name and subject  
+
+
+# Variable Naming Convention
+The column/variable names for all measures have been changed to use descriptive names before writing the final data set out. The following guidelines have been used to determine the naming convention for the variables in the final data set.   
+. retain the measure name in mixed case for readability as expanding it would make the column names too long   
+. follow 3-word rule for variable names:   
+... {measure_type} measure_name measure_component_if_exists  
+... EX: mean fBodyGyro Z   
+. leave the prefix (f or t that indicates the domain) to the measure name in the interest of keeping the variable names short  
+
+
+# Command to read finaldataset.txt:   
+finaldataset.df<-read.csv("./finaldataset.txt", sep = "", header = TRUE)
+

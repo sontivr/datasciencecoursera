@@ -1,0 +1,143 @@
+---
+title: "README"
+author: "Ramana Sonti"
+date: "11/13/2016"
+output: html_document
+---
+
+[//]: # This is a comment
+
+[//]: # ====================================================
+# Human Activity Recognition Using Smartphones Dataset
+# Version 1.0
+[//]: # ====================================================
+
+The data sets available at the following link have been processed to produce one single independent tidy data set (finaldataset.txt) with the average of each variable for each activity and each subject.  
+
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip  
+
+The following files are part of this package  
+. run_analysis.R  - R script that produces finaldataset.txt from raw data sets supplied  
+. finaldataset.txt - final data set   
+. CodeBook.Rmd - codebook that explains the processing steps and variables  
+. README.Rmd  - this file  
+
+
+Each variable selected in the merged input data set represented a set of values for mean or standard deviation of a measure (ex: tBodyAcc - mean X component of Body Acceleration in time domain) for a given subject engaged in a specific activity.  
+
+The measure variables in the output data set represent the average values of the meassures for each activity and each  subject.  
+
+The following are the major steps that have been performed to produce the final data set (finaldataset.txt)  
+. Read activity labels into a data frame and add a column with descriptive names for activities  
+. Read subjects into a data frame  
+. Read test data sets (subject_test, y_test, X_test) into separate data frames  
+. Read train data sets  (subject_train, y_train, X_train) into separate data frames  
+. Combine/rbind data frames for each type from test and train (subject, y, X)  
+. Drop all variable columns that do not have/represent mean or std  
+. Join activities (y) data frame with activity labels data frame to generate the column with lables in y data frame  
+. Perform aggregation on X data frame by activity name and subject  
+
+
+The column/variable names for all measures have been changed to use descriptive names before writing the final data set out. The following guidelines have been used to determine the naming convention for the variables in the final data set.   
+. retain the measure name in mixed case for readability as expanding it would make the column names too long   
+. follow 3-word rule for variable names:   
+... {measure_type} measure_name [measure_component_if_exists]  
+... EX: mean fBodyGyro Z   
+. leave the prefix (f or t that indicates the domain) to the measure name in the interest of keeping the variable names short  
+
+
+Variable List:  
+activity  
+subject  
+mean tBodyAcc X  
+mean tBodyAcc Y  
+mean tBodyAcc Z  
+std tBodyAcc X  
+std tBodyAcc Y  
+std tBodyAcc Z  
+mean tGravityAcc X  
+mean tGravityAcc Y  
+mean tGravityAcc Z  
+std tGravityAcc X  
+std tGravityAcc Y  
+std tGravityAcc Z  
+mean tBodyAccJerk X  
+mean tBodyAccJerk Y  
+mean tBodyAccJerk Z  
+std tBodyAccJerk X  
+std tBodyAccJerk Y  
+std tBodyAccJerk Z  
+mean tBodyGyro X  
+mean tBodyGyro Y  
+mean tBodyGyro Z  
+std tBodyGyro X  
+std tBodyGyro Y  
+std tBodyGyro Z  
+mean tBodyGyroJerk X  
+mean tBodyGyroJerk Y  
+mean tBodyGyroJerk Z  
+std tBodyGyroJerk X  
+std tBodyGyroJerk Y  
+std tBodyGyroJerk Z  
+mean tBodyAccMag  
+std tBodyAccMag  
+mean tGravityAccMag  
+std tGravityAccMag  
+mean tBodyAccJerkMag  
+std tBodyAccJerkMag  
+mean tBodyGyroMag  
+std tBodyGyroMag  
+mean tBodyGyroJerkMag  
+std tBodyGyroJerkMag  
+mean fBodyAcc X  
+mean fBodyAcc Y  
+mean fBodyAcc Z  
+std fBodyAcc X  
+std fBodyAcc Y  
+std fBodyAcc Z  
+meanFreq fBodyAcc X  
+meanFreq fBodyAcc Y  
+meanFreq fBodyAcc Z  
+mean fBodyAccJerk X  
+mean fBodyAccJerk Y  
+mean fBodyAccJerk Z  
+std fBodyAccJerk X  
+std fBodyAccJerk Y  
+std fBodyAccJerk Z  
+meanFreq fBodyAccJerk X  
+meanFreq fBodyAccJerk Y  
+meanFreq fBodyAccJerk Z  
+mean fBodyGyro X  
+mean fBodyGyro Y  
+mean fBodyGyro Z  
+std fBodyGyro X  
+std fBodyGyro Y  
+std fBodyGyro Z  
+meanFreq fBodyGyro X  
+meanFreq fBodyGyro Y  
+meanFreq fBodyGyro Z  
+mean fBodyAccMag  
+std fBodyAccMag  
+meanFreq fBodyAccMag  
+mean fBodyBodyAccJerkMag  
+std fBodyBodyAccJerkMag  
+meanFreq fBodyBodyAccJerkMag  
+mean fBodyBodyGyroMag  
+std fBodyBodyGyroMag  
+meanFreq fBodyBodyGyroMag  
+mean fBodyBodyGyroJerkMag  
+std fBodyBodyGyroJerkMag  
+meanFreq fBodyBodyGyroJerkMag  
+
+
+List of activities:  
+1. Walking  
+2. Walking Upstairs  
+3. Walking Downstairs   
+4. Sitting  
+5. Standing   
+6. Laying  
+
+
+The command to read findaldataset.txt:  
+finaldataset.df<-read.csv("./finaldataset.txt", sep = "", header = TRUE)
