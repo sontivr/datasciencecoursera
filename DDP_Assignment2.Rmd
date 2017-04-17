@@ -1,0 +1,72 @@
+---
+title: "First 20 NYC Landmarks"
+author: "Ramana Sonti"
+date: "4/14/2017"
+output: html_document
+runtime: shiny
+---
+
+
+#### Synopsis:
+I have downloaded "Individual Landmarks.geojson" from 
+https://data.cityofnewyork.us/Recreation/Individual-Landmarks/ch5p-r223/data and created an interactive map to show the first 20 landmarks from the dataset. When a user clicks on the landmark, a popup with the details of the landmark such as name, latitude, longitude, and address will be displayed. 
+
+
+```{r, echo=FALSE, comment='',background='',fig.height=1}
+library(leaflet)
+library(graphics)
+
+mydate <- as.character(format(Sys.Date(), "%B %d, %Y"))
+par(mar = c(0,0,0,0))
+plot(c(0, 1), c(0, 1), ann = F, bty = 'n', type = 'n', xaxt = 'n', yaxt = 'n')
+text(x = -0.05, y = 0.4, paste(mydate), cex = 2.5, col = "black", family="serif", font=2, adj=0)
+```
+
+```{r, echo=FALSE, cache=TRUE, comment=''}
+library(dplyr)
+library(jsonlite)
+
+getInfo<-function(recno){
+  return(
+      c(lm_name = geojson$features[[recno]]$properties$lm_name, 
+        long = geojson$features[[recno]]$geometry$coordinates[[1]],
+        lat = geojson$features[[recno]]$geometry$coordinates[[2]],
+        addr = geojson$features[[recno]]$properties$pluto_addr
+      )
+  )
+}
+
+geojson <- readLines("nyc_landmarks.geojson", warn = FALSE) %>% paste(collapse = "\n") %>% fromJSON(simplifyVector = FALSE)  
+landmarks<-data.frame(t(data.frame(sapply(1:20, getInfo), stringsAsFactors=FALSE)))
+landmarks$long <- as.numeric(as.character(landmarks$long))
+landmarks$lat <- as.numeric(as.character(landmarks$lat))
+
+```
+
+```{r, echo=FALSE, comment=''}
+library(shiny)
+library(leaflet)
+library(htmltools)
+
+ui <- fluidPage(
+    leafletOutput("map")
+)
+
+# Server logic
+server <- shinyServer(function(input, output) {
+  data <- reactiveValues(clickedMarker=NULL)
+  output$map <- renderLeaflet({
+    leaflet(landmarks)  %>%  addProviderTiles("CartoDB.Positron") %>% addMarkers(~long, ~lat, popup = paste(landmarks$lm_name, ": Lat:", landmarks$lat, " Lng:", landmarks$long, " Addr: ", landmarks$addr))
+  })
+
+  observeEvent(input$map_marker_click,{
+       data$clickedMarker <- input$map_marker_click
+  })
+  
+})    
+
+# Complete app with UI and server components
+shinyApp(ui, server)
+```
+
+`
